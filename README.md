@@ -1,79 +1,126 @@
-# 🧭 ForwardIQ – Universal Port Manager
+# **ForwardIQ – Universal Port Manager & Security Audit Suite**
 
-**ForwardIQ** is a powerful, all-in-one network utility that simplifies port forwarding, router management, and network security auditing.
-It supports multiple port-control protocols (UPnP, NAT-PMP, PCP) and includes advanced diagnostic and security capabilities suitable for home users, gamers, and network professionals.
-
----
-
-## 🌟 Key Features
-
-### 🔌 Universal Port Forwarding
-
-* Supports **UPnP (IGD v1/v2)**, **NAT-PMP**, and **PCP**
-* Create, delete, and list port mappings
-* Automatic protocol selection based on router capability
-
-### 🧠 Smart Router Detection
-
-* Router identification via:
-
-  * UPnP device information
-  * HTTP fingerprinting
-  * MAC OUI vendor lookup
-* Helps detect mesh routers, ISP gateways, and multi-router setups
-
-### 🛡️ Security Audit (**PRO Features**)
-
-* Public IP security checks against:
-
-  * Dark Web exposure databases
-  * Botnet and malware blocklists
-* Router model CVE vulnerability scanning
-* Generates an overall **Network Threat Score**
-
-### 🌐 Network Diagnostics
-
-* Detects **Double NAT**, **CGNAT**, and VPN interference (e.g., ProtonVPN)
-* Identifies when the router forces **HTTPS-only** access
-* Highlights connectivity or routing anomalies
-
-### 🖥️ Local Device Scanner
-
-* Scans local network (LAN)
-* Displays connected device **IP**, **MAC**, **Vendor**
-
-### 🔍 Port Checker
-
-* Validates whether a local port:
-
-  * Is listening
-  * Is reachable externally
-  * Is correctly forwarded through the router
+ForwardIQ is a professional-grade network utility designed to simplify port forwarding, automate router management, and perform comprehensive security audits.
+With universal protocol support (UPnP, NAT-PMP, PCP) and advanced diagnostic capabilities, ForwardIQ helps users identify router vulnerabilities, detect network threats, and optimize network configurations with ease.
 
 ---
 
-## 📥 Installation
+## 📌 **Table of Contents**
 
-### 1. Clone the Repository
+* [Features](#-features)
+* [Project Structure](#-project-structure)
+* [Installation](#-installation)
+* [How to Run](#-how-to-run)
+* [Usage Guide](#-usage-guide)
+* [Troubleshooting](#-troubleshooting)
+* [Disclaimer](#%EF%B8%8F-disclaimer)
+* [License](#-license)
+
+---
+
+## 🚀 **Features**
+
+### **🛡️ Security Audit (PRO Module)**
+
+* **Dark Web Exposure Check**
+  Compares your public IP against botnet feeds, Tor exit nodes, and malware blocklists.
+* **Router Vulnerability Scanner**
+  Fingerprints router models and checks them against a curated CVE database.
+* **Threat Score Calculator**
+  Generates a 0–100 score based on router configuration, exposed ports, and potential vulnerabilities.
+
+---
+
+### **🌐 Universal Port Forwarding**
+
+* UPnP IGD v1/v2, NAT-PMP, and PCP support
+* Auto-renewal of port mappings
+* Port conflict detection to prevent duplicates or blocked ports
+
+---
+
+### **🔍 Advanced Router Detection**
+
+* Router identification through:
+
+  * HTTP/HTTPS probing
+  * UPnP metadata extraction
+  * MAC address OUI lookups
+* Auth-aware detection with secure credential prompts
+* Full HTTPS support, including self-signed certificates and router redirects
+
+---
+
+### **🛠️ Network Diagnostics**
+
+* VPN tunnel detection
+* Double NAT / CGNAT detection
+* Local ARP device scanning with vendor lookup
+* Port listener verification to confirm application availability before mapping
+
+---
+
+## 📂 **Project Structure**
+
+```
+ForwardIQ/
+│
+├── ForwardIQ.py             # Main GUI Application
+├── router_engine.py         # Core logic: UPnP, NAT-PMP, PCP, scanning
+├── help_content.py          # Internal user guide content
+├── requirements.txt         # Dependency list
+│
+└── pro_tools/
+    ├── __init__.py
+    └── security_engine.py   # PRO security module (IP reputation + CVE scanning)
+```
+
+> ⚠️ **Important:** The `pro_tools` directory must exist and contain `security_engine.py` or the application will fail to start.
+
+---
+
+## ⚙️ **Installation**
+
+### **Prerequisites**
+
+* **Python 3.12+ (64-bit)**
+  Required due to compatibility with libraries such as `psutil`.
+* Compatible with:
+
+  * Windows (recommended)
+  * macOS
+  * Linux (Admin privileges may be required for ARP scanning)
+
+---
+
+### **Step 1 — Download the Source Code**
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ForwardIQ.git
+git clone https://github.com/CyberPulseDev/ForwardIQ.git
 cd ForwardIQ
 ```
 
-### 2. Install Dependencies
+### **Step 2 — Install Dependencies**
 
-Requires **Python 3.12 (64-bit)**.
+#### **Windows**
 
 ```bash
 py -3.12-64 -m pip install -r requirements.txt
 ```
 
+#### **macOS / Linux**
+
+```bash
+pip3 install -r requirements.txt
+```
+
+> If you encounter issues installing `miniupnpc` or `natpmp`, ensure appropriate C/C++ build tools are installed.
+
 ---
 
-## ▶️ Usage
+## ▶️ **How to Run**
 
-Run the application using a **64-bit Python interpreter**:
+Launch the application using a 64-bit Python interpreter:
 
 ```bash
 py -3.12-64 ForwardIQ.py
@@ -81,41 +128,53 @@ py -3.12-64 ForwardIQ.py
 
 ---
 
-## 📦 Building a Windows Executable
+## 💡 **Usage Guide**
 
-You can bundle ForwardIQ into a standalone `.exe` that runs on any Windows system (no Python required).
+### Dashboard Indicators
 
-### 1. Install PyInstaller
+* **Green** → Protocol available
+* **Red** → Router feature disabled or blocked
+* **Orange** → VPN detected (may block router access)
 
-```bash
-py -3.12-64 -m pip install pyinstaller
-```
+### VPN Users
 
-### 2. Build the Executable
+If VPN is detected, temporarily disable it to allow ForwardIQ to communicate with your physical router.
 
-```bash
-pyinstaller --noconsole --onefile --name ForwardIQ ForwardIQ.py
-```
+### Running a Security Audit (PRO)
 
-Your executable will be available in:
-
-```
-dist/ForwardIQ.exe
-```
+1. Navigate to **Security Audit (PRO)**
+2. Click **Run Full Security Audit**
+3. Review your Threat Score and recommended actions
 
 ---
 
-## ⚠️ Disclaimer
+## ❓ **Troubleshooting**
 
-ForwardIQ includes features that modify **router and network security settings**, such as port forwarding.
-Misconfigured ports can expose internal services to the internet.
-
-You are responsible for how you use this tool.
-The developers assume **no liability** for security incidents caused by misuse or misconfiguration.
+| Issue                            | Cause                               | Solution                                                            |
+| -------------------------------- | ----------------------------------- | ------------------------------------------------------------------- |
+| **Unknown Router**               | Router requires login / unsupported | Click **Auto Detect Router**, enter admin credentials when prompted |
+| **Public IP: Unreachable**       | VPN / firewall blocking             | Disable VPN, ensure `api.ipify.org` is accessible                   |
+| **0 Mappings Found**             | No dynamic UPnP rules               | Normal; manually configured rules do not appear in UPnP lists       |
+| **Application Crash on Startup** | Missing files                       | Ensure `pro_tools/security_engine.py` is present                    |
 
 ---
 
-## 📄 License
+## ⚠️ **Disclaimer**
 
-This project is released under the **MIT License**.
-You are free to use, modify, and distribute the software.
+ForwardIQ modifies network configuration settings.
+While safety mechanisms are implemented, users are fully responsible for:
+
+* Ports they open
+* Exposure of local services
+* Risks arising from vulnerable router hardware or misconfigurations
+
+Use the **Security Audit** module to evaluate risk levels before exposing network services publicly.
+
+---
+
+## 📄 **License**
+
+Distributed under the **MIT License**.
+See the `LICENSE` file for full legal details.
+
+---
