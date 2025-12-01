@@ -1,8 +1,3 @@
-Here is a **clean, fully structured, professional GitHub-ready README.md** for your project.
-This follows best practices used by top open-source repositories.
-
----
-
 # 🧭 ForwardIQ – Universal Port Manager
 
 **ForwardIQ** is a powerful, all-in-one network utility that simplifies port forwarding, router management, and network security auditing.
