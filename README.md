@@ -171,6 +171,13 @@ While safety mechanisms are implemented, users are fully responsible for:
 Use the **Security Audit** module to evaluate risk levels before exposing network services publicly.
 
 ---
+## 📷 Application Screenshots
+<img width="896" height="797" alt="Screenshot 2025-12-01 132613" src="https://github.com/user-attachments/assets/32f2353a-95e0-47ee-bedb-2f92ef8b4171" />
+<img width="891" height="796" alt="Screenshot 2025-12-01 132617" src="https://github.com/user-attachments/assets/67dfea97-8b48-41de-86ce-07ea281a70d3" />
+<img width="897" height="796" alt="Screenshot 2025-12-01 132620" src="https://github.com/user-attachments/assets/aa5a19c2-353b-43a7-b7f9-517e4b38c79e" />
+<img width="890" height="797" alt="Screenshot 2025-12-01 132625" src="https://github.com/user-attachments/assets/dcfed2fb-f39a-4413-8f0f-ff8f018b4637" />
+
+---
 
 ## 📄 **License**
 
@@ -178,3 +185,4 @@ Distributed under the **MIT License**.
 See the `LICENSE` file for full legal details.
 
 ---
+
