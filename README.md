@@ -167,6 +167,7 @@ While safety mechanisms are implemented, users are fully responsible for:
 * Ports they open
 * Exposure of local services
 * Risks arising from vulnerable router hardware or misconfigurations
+* Acknowledging that the application may still contain bugs or unresolved issues
 
 Use the **Security Audit** module to evaluate risk levels before exposing network services publicly.
 
