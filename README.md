@@ -1,99 +1,126 @@
-📘 ForwardIQ – Universal Port Manager
+Here is a **clean, fully structured, professional GitHub-ready README.md** for your project.
+This follows best practices used by top open-source repositories.
 
-ForwardIQ is a powerful, all-in-one network utility designed to simplify port forwarding, router detection, and network security auditing. It supports modern port-control protocols (UPnP, NAT-PMP, PCP) and includes advanced diagnostic and security features. Perfect for gamers, home-lab enthusiasts, and network professionals.
+---
 
-🚀 Features
-🔌 Universal Port Forwarding
+# 🧭 ForwardIQ – Universal Port Manager
 
-Full support for UPnP (IGD v1/v2), NAT-PMP, and PCP
+**ForwardIQ** is a powerful, all-in-one network utility that simplifies port forwarding, router management, and network security auditing.
+It supports multiple port-control protocols (UPnP, NAT-PMP, PCP) and includes advanced diagnostic and security capabilities suitable for home users, gamers, and network professionals.
 
-Add, delete, or list existing port mappings
+---
 
-Auto-detect supported protocol per router
+## 🌟 Key Features
 
-🧠 Smart Router Detection
+### 🔌 Universal Port Forwarding
 
-Identifies router models via:
+* Supports **UPnP (IGD v1/v2)**, **NAT-PMP**, and **PCP**
+* Create, delete, and list port mappings
+* Automatic protocol selection based on router capability
 
-UPnP fingerprinting
+### 🧠 Smart Router Detection
 
-HTTP header analysis
+* Router identification via:
 
-MAC OUI lookup
+  * UPnP device information
+  * HTTP fingerprinting
+  * MAC OUI vendor lookup
+* Helps detect mesh routers, ISP gateways, and multi-router setups
 
-Helps detect ISP routers, mesh systems, and repeaters
+### 🛡️ Security Audit (**PRO Features**)
 
-🛡️ Security Audit (PRO Features)
+* Public IP security checks against:
 
-Check Public IP against:
+  * Dark Web exposure databases
+  * Botnet and malware blocklists
+* Router model CVE vulnerability scanning
+* Generates an overall **Network Threat Score**
 
-Dark Web exposure databases
+### 🌐 Network Diagnostics
 
-Botnet & malware blocklists
+* Detects **Double NAT**, **CGNAT**, and VPN interference (e.g., ProtonVPN)
+* Identifies when the router forces **HTTPS-only** access
+* Highlights connectivity or routing anomalies
 
-Scan router firmware/model for known CVE vulnerabilities
+### 🖥️ Local Device Scanner
 
-Generate an overall Network Threat Score
+* Scans local network (LAN)
+* Displays connected device **IP**, **MAC**, **Vendor**
 
-🌐 Network Diagnostics
+### 🔍 Port Checker
 
-Detect Double NAT and ISP-level CGNAT
+* Validates whether a local port:
 
-Identify VPN interference (e.g., ProtonVPN)
+  * Is listening
+  * Is reachable externally
+  * Is correctly forwarded through the router
 
-Validate router HTTPS-only access behavior
+---
 
-🖥️ Local Device Scanner
+## 📥 Installation
 
-Discover devices on LAN
+### 1. Clone the Repository
 
-Shows IP address, MAC, and vendor name
-
-🔍 Port Checker
-
-Test if any local port is:
-
-Listening
-
-Reachable externally
-
-Correctly forwarded
-
-🛠️ Installation
+```bash
 git clone https://github.com/YOUR_USERNAME/ForwardIQ.git
 cd ForwardIQ
+```
+
+### 2. Install Dependencies
+
+Requires **Python 3.12 (64-bit)**.
+
+```bash
 py -3.12-64 -m pip install -r requirements.txt
+```
 
-▶️ Usage
+---
 
-Run the main application (requires 64-bit Python):
+## ▶️ Usage
 
+Run the application using a **64-bit Python interpreter**:
+
+```bash
 py -3.12-64 ForwardIQ.py
+```
 
-📦 Build a Windows Executable
+---
 
-Create a standalone .exe that runs without Python installed:
+## 📦 Building a Windows Executable
 
-Install PyInstaller:
+You can bundle ForwardIQ into a standalone `.exe` that runs on any Windows system (no Python required).
 
+### 1. Install PyInstaller
+
+```bash
 py -3.12-64 -m pip install pyinstaller
+```
 
+### 2. Build the Executable
 
-Build the application:
-
+```bash
 pyinstaller --noconsole --onefile --name ForwardIQ ForwardIQ.py
+```
 
+Your executable will be available in:
 
-The final executable will be located in:
-
+```
 dist/ForwardIQ.exe
+```
 
-⚠️ Disclaimer
+---
 
-ForwardIQ allows modification of network and router settings (including Port Forwarding).
-Improper configuration may expose internal services to the public internet.
-Use responsibly. The developers are not liable for any security breaches or misuse.
+## ⚠️ Disclaimer
 
-📄 License
+ForwardIQ includes features that modify **router and network security settings**, such as port forwarding.
+Misconfigured ports can expose internal services to the internet.
 
-MIT License — free to use, modify, and distribute.
+You are responsible for how you use this tool.
+The developers assume **no liability** for security incidents caused by misuse or misconfiguration.
+
+---
+
+## 📄 License
+
+This project is released under the **MIT License**.
+You are free to use, modify, and distribute the software.
