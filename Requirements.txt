@@ -1,0 +1,4 @@
+miniupnpc==2.3.3
+py-natpmp
+requests
+psutil
