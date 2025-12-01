@@ -1,4 +1,4 @@
-# **ForwardIQ – Universal Port Manager & Security Audit Suite**
+# **ForwardIQ – Universal Port Manager**
 
 ForwardIQ is a professional-grade network utility designed to simplify port forwarding, automate router management, and perform comprehensive security audits.
 With universal protocol support (UPnP, NAT-PMP, PCP) and advanced diagnostic capabilities, ForwardIQ helps users identify router vulnerabilities, detect network threats, and optimize network configurations with ease.
